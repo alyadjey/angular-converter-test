@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Конвертер валют</h1>
+
+  <div class="exchange-rates">
+    <h2>Курс Валют</h2>
+    <p>1 USD = {{ exchangeRates['USD'] | number: '1.2-2' }} UAH</p>
+    <p>1 EUR = {{ exchangeRates['EUR'] | number: '1.2-2' }} UAH</p>
+  </div>
+
+  <div class="currency-converter">
+    <div>
+      <label>Первая валюта</label>
+      <input [(ngModel)]="amount1" type="number" (input)="convertCurrency(1)"/>
+      <select [(ngModel)]="currency1" (change)="convertCurrency(1)">
+        <option value="UAH">UAH</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+    <div>
+      <label>Вторая валюта</label>
+      <input [(ngModel)]="amount2" type="number" (input)="convertCurrency(2)"/>
+      <select [(ngModel)]="currency2" (change)="convertCurrency(2)">
+        <option value="UAH">UAH</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="result">
+    Результат: {{ amount1 | number: '1.2-2' }} {{ currency1 }} = {{ amount2 | number: '1.2-2' }} {{ currency2 }}
+  </div>
+</div>
